@@ -9,7 +9,7 @@ pipeline{
         }
         stage('mvn-build'){
             steps{
-                sh 'sudo mvn clean install -DskipTests'
+                //sh 'sudo mvn clean install -DskipTests'
                 sh 'ls -R'
             }
         }
