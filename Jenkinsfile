@@ -9,7 +9,8 @@ pipeline{
         }
         stage('mvn-build'){
             steps{
-                sh 'mvn install -DskipTests'
+                sh 'mvn clean'
+                sh 'mvn package'
                 sh 'cd target'
             }
         }
