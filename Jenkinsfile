@@ -9,7 +9,7 @@ pipeline{
         }
         stage('mvn-build'){
             steps{
-                sh 'mvn clean'
+                //sh 'mvn clean'
                 sh 'mvn package'
                 sh 'cd target'
             }
