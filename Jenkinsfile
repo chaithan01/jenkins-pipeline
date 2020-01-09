@@ -10,7 +10,7 @@ pipeline{
         stage('mvn-build'){
             steps{
                 //sh 'mvn clean'
-                sh 'mvn package'
+                sh "mvn -Dmaven.test.failure.ignore=true clean package"
                 sh 'cd target'
             }
         }
