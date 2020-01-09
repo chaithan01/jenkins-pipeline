@@ -1,14 +1,9 @@
 pipeline{
-    environment {
-        registry = "ansible007/test-jenkins"
-        registryCredential = 'dockerpush'
-        dockerImage = ""
-    }
     agent any
     stages{
         stage('checkout'){
             steps{
-                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/redskullk/jenkins-pipeline.git']]])
+                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/chaithan01/jenkins-pipeline.git']]])
             }
            
         }
@@ -19,7 +14,7 @@ pipeline{
             }
         }
         
-        stage('Building image') {
+/*        stage('Building image') {
           steps{
             script {
               dockerImage = docker.build registry + ":$BUILD_NUMBER"
@@ -40,5 +35,5 @@ pipeline{
             sh "docker rmi $registry:$BUILD_NUMBER"
           }
         }
-    }
+    } */
 }
